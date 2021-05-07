@@ -6,7 +6,7 @@ class Adapter
             'host' => 'localhost',
             'username' => 'root',
             'password' => '',
-            'database' => 'test'
+            'database' => 'questecom'
         ];
         private $connect = null;
         public function connection()

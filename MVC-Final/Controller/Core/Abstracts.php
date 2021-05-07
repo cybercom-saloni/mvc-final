@@ -54,7 +54,7 @@ class Abstracts
         $queryString = http_build_query($final); //c=product&a=grid
         unset($final);
         
-        return "http://localhost:8080/Questecome/index.php?{$queryString}"; 
+        return "http://localhost/Questecome/index.php?{$queryString}"; 
     }  
 
     public function getLayout()

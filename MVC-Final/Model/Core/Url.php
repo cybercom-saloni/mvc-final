@@ -40,13 +40,13 @@ class Url
 		}
 		$queryString = http_build_query($final);
 		unset($final);
-		$url = "http://localhost:8080/Questecome/index.php?{$queryString}";
+		$url = "http://localhost/Questecome/index.php?{$queryString}";
 		return $url;
 	}
     
     public function baseUrl($subUrl=NULL)
     {
-        $url = "http://localhost:8080/Questecome/";
+        $url = "http://localhost/Questecome/";
         
         if ($subUrl) {
             $url .= $subUrl;
