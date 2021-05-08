@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2021 at 05:59 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.3.27
+-- Generation Time: May 08, 2021 at 05:27 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -163,7 +164,7 @@ INSERT INTO `cart` (`cartId`, `customerId`, `sessionId`, `total`, `discount`, `s
 (3, 5, NULL, 0, 0, 0, 0, 0, '2021-03-26 06:08:54'),
 (4, 3, NULL, 0, 0, 0, 0, 0, '2021-03-26 06:17:42'),
 (5, 6, NULL, 0, 0, 0, 0, 0, '2021-03-27 07:42:49'),
-(6, 7, NULL, 1496, 0, 2, 1646, 8, '2021-03-27 09:24:36'),
+(6, 7, NULL, 2992, 0, 2, 3142, 8, '2021-03-27 09:24:36'),
 (7, 0, NULL, 0, 0, 0, 0, 0, '2021-04-03 07:43:56'),
 (8, 8, NULL, 0, 0, 0, 0, 0, '2021-04-03 07:44:53');
 
@@ -225,7 +226,7 @@ INSERT INTO `cart_item` (`cartItemId`, `cartId`, `productId`, `quantity`, `baseP
 (12, 4, 1, 3, 0, 1496, 10, '2021-03-26 06:17:56'),
 (14, 2, 2, 3, 0, 732, 10, '2021-03-27 06:24:11'),
 (15, 2, 4, 1, 0, 1100, 10, '2021-03-27 06:24:16'),
-(18, 6, 1, 1, 0, 1496, 10, '2021-03-27 09:27:35'),
+(18, 6, 1, 2, 0, 1496, 10, '2021-03-27 09:27:35'),
 (20, 5, 13, 2, 0, 1216, 10, '2021-03-29 04:34:32'),
 (21, 3, 1, 1, 0, 1496, 10, '2021-04-01 08:15:25'),
 (22, 1, 1, 1, 0, 1496, 10, '2021-04-01 10:32:26'),
@@ -254,7 +255,6 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `status`, `description`, `featured`, `parentId`, `pathId`, `createdat`, `updatedat`) VALUES
-(1, 'Bedroom', 'Enabled', 'Bedroom', 'YES', 0, '1', '2021-03-21 10:06:41', '2021-03-22 01:37:56'),
 (2, 'Living Room', 'Enabled', 'Living Room', 'YES', 0, '2', '2021-03-21 10:06:41', '2021-03-22 01:39:57'),
 (3, 'Dining & Kitchen', ' ', 'Dining & Kitchen', 'YES', 0, '3', '2021-03-21 10:06:41', '2021-03-22 01:40:49'),
 (4, 'Office', '1', 'Office', 'YES', 0, '4', '2021-03-21 10:06:41', '2021-03-21 10:06:41'),
@@ -263,7 +263,7 @@ INSERT INTO `category` (`id`, `name`, `status`, `description`, `featured`, `pare
 (7, 'Outdoor', ' ', 'Outdoor', 'YES', 0, '7', '2021-03-21 10:06:41', '2021-03-23 00:22:53'),
 (8, 'Entry & Mudroom', '1', 'Entry & Mudroom', NULL, 0, '8', '2021-03-21 10:06:41', '2021-03-21 10:06:41'),
 (9, 'Bedroom Sets', '1', 'Bedroom Sets\r\n', NULL, 1, '1=9', '2021-03-21 10:06:41', '2021-03-21 10:06:41'),
-(10, 'Beds', ' ', 'Beds', ' ', 1, '1=10', '2021-03-21 10:06:41', '2021-03-23 04:13:33'),
+(10, 'Beds', ' ', 'Beds', ' ', 0, '10', '2021-03-21 10:06:41', '2021-03-23 04:13:33'),
 (11, 'Nightstands', ' ', 'Nightstands', ' ', 1, '1=11', '2021-03-21 10:06:41', '2021-03-23 04:13:40'),
 (12, 'Dressers', ' ', 'Dressers', ' ', 1, '1=12', '2021-03-21 10:06:41', '2021-03-23 04:13:47'),
 (13, 'Dresser Mirrors', ' ', 'Dresser Mirrors', ' ', 1, '1=13', '2021-03-21 10:06:41', '2021-03-23 04:13:54'),
@@ -397,7 +397,6 @@ INSERT INTO `category_media` (`id`, `image`, `label`, `icon`, `base`, `banner`, 
 (6, 'Banner-4.jpg', 'Living Rooom', '0', '0', '1', '0', 17),
 (15, 'game-room.jpg', 'game-room', '0', '1', '0', '0', 5),
 (16, 'Accessories.jpg', 'Assessories', '0', '1', '0', '0', 6),
-(17, 'bedroom.jpg', 'bedroom', '0', '1', '0', '0', 1),
 (18, 'Living-room.jpg', 'Living-room', '0', '1', '0', '0', 2),
 (19, 'kitchen.jpg', 'Kitchen', '0', '1', '0', '0', 3),
 (22, 'outdoor.jpg', 'outdoor', '0', '1', '0', '0', 7),
@@ -450,10 +449,10 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`id`, `firstname`, `lastname`, `email`, `password`, `status`, `group_id`, `createdat`, `updatedat`) VALUES
 (3, 'Manish bhai', 'Parmar', 'm@gmail.com', 'm123', 'Disabled', 1, '2021-03-14 01:37:59', '2021-03-27 09:02:56'),
-(4, 'TILAK', 'PANDYA', 'tilakpandya2@gmail.com', 'anything', 'Enabled', 3, '2021-03-14 10:35:07', '2021-03-14 15:05:07'),
+(4, 'TILAK', 'patel', 'tilak2@gmail.com', 'anything', 'Enabled', 3, '2021-03-14 10:35:07', '2021-03-14 15:05:07'),
 (5, 'Rakesh', 'Patel', 'rakesh@gmail.com', 'rakesh123', 'Disabled', 1, '2021-03-14 10:57:25', '2021-03-14 15:27:25'),
 (6, 'Pradipbhai', 'Pandya', 'p@gmail.com', 'pandya', 'Disabled', 1, '2021-03-16 02:03:12', '2021-03-16 06:33:12'),
-(7, 'Saloni', 'sindhi', 'salono@gmail.com', 'saloni123', 'Enabled', 1, '2021-03-22 01:11:47', '2021-03-22 05:41:47'),
+(7, 'Saloni', 'Maheshwari', 'salono@gmail.com', 'saloni123', 'Enabled', 1, '2021-03-22 01:11:47', '2021-03-22 05:41:47'),
 (8, 'Shailesh', 'Prajapati', 'shaileshprajapati@gmail.com', 'shailesh123', 'Enabled', NULL, '2021-03-30 02:11:17', '2021-03-30 05:41:18');
 
 -- --------------------------------------------------------
@@ -532,7 +531,7 @@ CREATE TABLE `media` (
 --
 
 INSERT INTO `media` (`id`, `label`, `image`, `thumbnail`, `base`, `small`, `gallery`, `productId`) VALUES
-(38, 'Bedset', 'bedroom.jpg', '1', '0', '1', '1', 1),
+(38, 'Bedset', 'bedroom.jpg', '1', '0', '0', '0', 1),
 (39, 'sofaset', 'Living-room.jpg', '1', '1', '1', '0', 2),
 (40, 'bedroom', 'bedroom1.jpg', '1', '0', '0', '0', 3),
 (41, 'sofaset', 'Category-Living.jpg', '1', '0', '0', '0', 4),
@@ -542,8 +541,8 @@ INSERT INTO `media` (`id`, `label`, `image`, `thumbnail`, `base`, `small`, `gall
 (45, 'Office', 'office.png', '1', '0', '0', '0', 8),
 (46, 'bedroom', 'bedroom1.jpg', '1', '0', '0', '0', 9),
 (47, 'Accessorie', 'Accessories.jpg', '1', '0', '0', '0', 10),
-(48, 'Bedset 2', 'bedroom1.jpg', '0', '0', '0', '0', 1),
-(49, 'bed ', 'bed1.jpg', '0', '1', '0', '0', 1),
+(48, 'Bedset 2', 'bedroom1.jpg', '0', '0', '1', '1', 1),
+(49, 'bed ', 'bed1.jpg', '0', '1', '0', '1', 1),
 (50, NULL, 'bed2.jpg', NULL, NULL, NULL, '', 4),
 (51, NULL, 'furniture.jpg', NULL, NULL, NULL, '', 4),
 (52, NULL, 'furniture.jpg', NULL, NULL, NULL, '', 2),
@@ -824,7 +823,8 @@ INSERT INTO `product_category` (`id`, `productId`, `categoryId`) VALUES
 (76, 15, 17),
 (77, 15, 18),
 (78, 5, 9),
-(79, 10, 9);
+(79, 10, 9),
+(80, 1, 9);
 
 -- --------------------------------------------------------
 
@@ -1149,7 +1149,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `product_category`
 --
 ALTER TABLE `product_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `product_customer_group_price`

@@ -63,7 +63,6 @@ $paymentMethod = $this->getPaymentMethod();
             </tr>
     </table>
     
-    <button class="aa-browse-btn"><a href="<?php echo $this->getUrl()->getUrl('order','Admin_Order',['cartId'=>$this->getCart()->cartId],true);?>">Place Order</a></button><br><br>
 </div>
 
 
